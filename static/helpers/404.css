@@ -26,28 +26,6 @@ html, body {
 }
 
 /*-------------------------------------------------------------------
-02. Page Loader
-------------------------------------------------------------------- */
-.yb-pageloader-wrapper {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  font-weight: 700;
-  z-index: 10000;
-  background-color: #fff;
-}
-
-.yb-pageloader-wrapper.page-is-loaded {
-  display: none;
-}
-
-.yb-dark-skin .yb-pageloader-wrapper {
-  background: #05182c;
-}
-
-/*-------------------------------------------------------------------
 03. Main Menu
 ------------------------------------------------------------------- */
 .yb-main-header {
