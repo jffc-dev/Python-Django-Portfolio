@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-62m&$174v-x3$_xn9ixr3o-e=$eb^1-*)w&14m^re_1o_%o9m2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'Portfolio',
+    'Helpers',
 ]
 
 MIDDLEWARE = [
@@ -118,7 +119,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    '/static/'
+    'static'
 ]
 
 # Default primary key field type
