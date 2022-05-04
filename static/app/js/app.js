@@ -367,11 +367,11 @@ $.fn.isOnScreen = function(){
     });
   }
 
-  $(".skill-filter-btn").on("click", function() {
-    setTimeout(function(){
-      console.log($(".skills-filter > div:visible"))
-    }, 1000);
-  });
+  // $(".skill-filter-btn").on("click", function() {
+  //   setTimeout(function(){
+  //     console.log($(".skills-filter > div:visible"))
+  //   }, 1000);
+  // });
 
   function asd(){
     console.log(1)
