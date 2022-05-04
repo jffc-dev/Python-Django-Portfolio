@@ -1,0 +1,44 @@
+Alias /static /home/jffc-dev/Python-Django-Portfolio/static
+
+<Directory /home/jffc-dev/Python-Django-Portfolio/static>
+        Require all granted
+</Directory>
+
+
+Alias /media /home/jffc-dev/Python-Django-Portfolio/media
+
+<Directory /home/jffc-dev/Python-Django-Portfolio/media>
+        Require all granted
+</Directory>
+
+
+
+<Directory /home/jffc-dev/Python-Django-Portfolio/Python-Django-Portfolio>
+    <Files wsgi.py>
+    Require all granted
+    </Files>
+</Directory>
+
+
+WSGIScriptAlias / /home/jffc-dev/Python-Django-Portfolio/Python-Django-Portfolio/wsgi.py
+WSGIDaemonProcess django_app python-path=/home/jffc-dev/Python-Django-Portfolio python-home=/home/jffc-dev/Python-Django-Portfolio/env
+WSGIProcessGroup django_app
+
+
+django_portfolio
+
+
+
+
+
+portfolio-user
+AKIA32XCQOSZ5GDOVBGH 
+1ZHKbg7bxJgIRrmVh1UZRckYETw3Z3nXn2HeSM46 Ocultar
+
+
+
+{
+        "SECRET_KEY": "django-insecure-62m&$174v-x3$_xn9ixr3o-e=$eb^1-*)w&14m^re_1o_%o9m2",
+        "DATABASE_USER": "portfolio_user",
+        "DATABASE_PASSWORD": "p0rtf0lioJFFC"
+}
