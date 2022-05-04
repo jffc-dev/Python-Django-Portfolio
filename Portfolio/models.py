@@ -15,6 +15,9 @@ class Idioma(models.Model):
     def educacionLista(self):
         return Formacion.objects.filter(tipo__exact='EDU', idioma__clave=self.clave)
 
+    def categoriasLista(self):
+        return Categoria.objects.all()
+
     def experienciaLista(self):
         return Formacion.objects.filter(tipo__exact='EXP', idioma__clave=self.clave)
 
@@ -87,6 +90,24 @@ class IdiomaEntorno(models.Model):
         return 'Entorno para el idioma: {}'.format(self.idioma.titulo)
 
 
+class Categoria(models.Model):
+    nombreCortoDefecto = models.CharField(max_length=50)
+    nombreLargoDefecto = models.CharField(max_length=100, blank=True)
+
+    def __str__(self):
+        return 'Nombre: {}'.format(self.nombreCortoDefecto)
+
+
+class CategoriaIdioma(models.Model):
+    idioma = models.ForeignKey(Idioma, on_delete=models.CASCADE)
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    nombreCorto = models.CharField(max_length=50)
+    nombreLargo = models.CharField(max_length=100, blank=True)
+
+    def __str__(self):
+        return 'Nombre: {}'.format(self.nombreCorto)
+
+
 class Formacion(models.Model):
     idioma = models.ForeignKey(Idioma, on_delete=models.CASCADE)
     rangoFecha = models.CharField(max_length=150)
@@ -104,6 +125,7 @@ class Habilidad(models.Model):
     titulo = models.CharField(max_length=30)
     porcentaje = models.IntegerField()
     tipo = models.CharField(max_length=3, choices=HABILIDAD_TIPOS)
+    categoria = models.ForeignKey(Categoria, default=1, on_delete=models.CASCADE)
 
     def __str__(self):
         return 'Idioma: {}, Título: {}'.format(self.idioma.titulo if self.idioma else 'Todos', self.titulo)
@@ -162,14 +184,6 @@ class Testimonial(models.Model):
 
     def __str__(self):
         return 'Usuario: {}, Título: {}'.format(self.nombreUsuario, self.titulo)
-
-
-class Categoria(models.Model):
-    nombreCorto = models.CharField(max_length=50)
-    nombreLargo = models.CharField(max_length=100, blank=True)
-
-    def __str__(self):
-        return 'Nombre: {}'.format(self.nombreCorto)
 
 
 class Proyecto(models.Model):
