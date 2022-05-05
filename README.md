@@ -37,3 +37,8 @@ Run project:
 ```
 python manage.py runserver
 ```
+
+Restart service
+```
+sudo service apache2 restart
+```
