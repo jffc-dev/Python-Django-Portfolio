@@ -35,6 +35,10 @@ class Idioma(models.Model):
 
 
 class IdiomaEntorno(models.Model):
+
+    class Meta:
+        verbose_name_plural = "Entorno por idioma"
+
     idioma = models.OneToOneField(Idioma, on_delete=models.CASCADE, primary_key=True)
     titulo = models.CharField(max_length=50, blank=True)
     # region CamposMenu
@@ -109,6 +113,10 @@ class CategoriaIdioma(models.Model):
 
 
 class Formacion(models.Model):
+
+    class Meta:
+        verbose_name_plural = "Formaciones"
+
     idioma = models.ForeignKey(Idioma, on_delete=models.CASCADE)
     rangoFecha = models.CharField(max_length=150)
     posicion = models.CharField(max_length=150)
@@ -121,6 +129,10 @@ class Formacion(models.Model):
 
 
 class Habilidad(models.Model):
+
+    class Meta:
+        verbose_name_plural = "Habilidades"
+
     idioma = models.ForeignKey(Idioma, on_delete=models.CASCADE, blank=True, null=True)
     titulo = models.CharField(max_length=30)
     porcentaje = models.IntegerField()
@@ -132,6 +144,10 @@ class Habilidad(models.Model):
 
 
 class Perfil(models.Model):
+
+    class Meta:
+        verbose_name_plural = "Perfiles"
+
     idioma = models.OneToOneField(Idioma, on_delete=models.CASCADE, primary_key=True)
     nombreCorto = models.CharField(max_length=50, blank=True)
     nombreLargo = models.CharField(max_length=100, blank=True)
@@ -154,6 +170,10 @@ class Perfil(models.Model):
 
 
 class PerfilServicios(models.Model):
+
+    class Meta:
+        verbose_name_plural = "Servicios por perfil"
+
     idioma = models.OneToOneField(Idioma, on_delete=models.CASCADE, primary_key=True)
     servicio1Texto = models.CharField(max_length=50, blank=True)
     servicio1Url = models.CharField(max_length=100, blank=True)
@@ -163,6 +183,9 @@ class PerfilServicios(models.Model):
     servicio3Url = models.CharField(max_length=100, blank=True)
     servicio4Texto = models.CharField(max_length=50, blank=True)
     servicio4Url = models.CharField(max_length=100, blank=True)
+
+    def __str__(self):
+        return 'Servicios para el idioma: {}'.format(self.idioma.titulo)
 
 
 class ContactoAsunto(models.Model):
