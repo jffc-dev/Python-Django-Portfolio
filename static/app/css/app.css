@@ -69,245 +69,11 @@ html, body {
   border: 2px solid rgba(255,255,255,.5);
 }
 
-/* modal begin */
-.modal_wraper {
-  background-color: rgba(255, 255, 255, 0.5);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 9999999;
-  display: grid;
-  place-items: center;
-  padding: 20px;
-  visibility: hidden;
-  opacity: 0;
-  transition: 0.3s ease-in-out;
-}
-.modal_wraper.active {
-  opacity: 1;
-  visibility: visible;
-}
-.modal_wraper .modal_container {
-  background-color: #05182c;
-  max-width: 450px;
-  width: 100%;
-  border-radius: 5px;
-  overflow: hidden;
-  display: none;
-  box-shadow: 0 1px 6px #0001, 0 2px 10px #0002;
-}
-.modal_wraper.active .modal_container {
-  display: block;
-  animation-name: modal_open_animation;
-  animation-duration: 0.3s;
-  animation-fill-mode: both;
-  animation-timing-function: ease-in-out;
-  animation-delay: 0.4s;
-}
-@keyframes modal_open_animation {
-  0% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-.modal_wraper.modal_close_animation .modal_container {
-  animation-name: modal_close_animation;
-  animation-timing-function: ease-in-out;
-  animation-delay: 0s;
-}
-@keyframes modal_close_animation {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(0);
-  }
-}
-.modal_wraper.lg .modal_container {
-  max-width: 650px;
-}
-.modal_wraper.xl .modal_container {
-  max-width: 850px;
-}
-.modal_wraper .modal_container :is(.modal_header, .modal_footer) {
-  padding: 10px 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #000;
-  font-weight: bold;
-  color: white;
-}
-
-.modal_header span{
-  width: 100%;
-  text-align: center;
-  font-size: 20px;
-}
-
-.modal_wraper .modal_container :is(.modal_header, .modal_footer) > .close {
-  padding: 0;
-  border: none;
-  background-color: transparent;
-  outline: none;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
-}
-.modal_wraper .modal_container :is(.modal_header, .modal_footer) > .close i {
-  color: white;
-  pointer-events: none;
-}
-.modal_wraper
-  .modal_container
-  :is(.modal_header, .modal_footer)
-  > .close:hover {
-  color: #1e87f0;
-}
-.modal_wraper .modal_container .modal_footer > .close.btn {
-  color: white;
-  padding: 8px 15px;
-  border-radius: 4px;
-  box-shadow: 0 2px 10px #0003;
-}
-.modal_wraper .modal_container .modal_footer > .close.btn:hover {
-  filter: brightness(0.95);
-  box-shadow: 0 2px 15px #0006;
-}
-.modal_wraper .modal_container .modal_body {
-  border-top: 1px solid #0002;
-  border-bottom: 1px solid #0002;
-  padding: 10px 20px;
-  max-height: 80vh;
-  overflow-y: auto;
-  line-height: 1.8;
-}
-
-.modal_body_languages{
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.modal_body_box div{
-  display: flex;
-  align-items: center;
-  width: 10rem;
-  height: 10rem;
-  overflow: hidden;
-  border-radius: 50%;
-  max-height: 200px;
-  max-width: 200px;
-}
-
-.modal_body_box p{
-  text-align: center;
-  margin: 10px 0 0 0;
-}
-
-.modal_body_box p i{
-  color: #00ff95;
-}
-
-.modal_body_box.deactive:hover{
-  background-color: #00ff95;
-  transform: scale(105%);
-  border-radius: 5%;
-  cursor: pointer;
-}
-
-.modal_body_box.deactive:hover p{
-  color: black;
-}
-
-.modal_body_box.deactive:hover p i{
-  color: black;
-}
-
-.modal_body_box{
-  padding: 10px 5px 0;
-}
-
-/* modal end */
-
 .stop-scrolling {
     height: 100%;
     overflow: hidden;
     overflow-x: hidden;
 }
-/*.modal {*/
-/*  display: none; !* Hidden by default *!*/
-/*  position: fixed; !* Stay in place *!*/
-/*  z-index: 1; !* Sit on top *!*/
-/*  padding-top: 100px; !* Location of the box *!*/
-/*  left: 0;*/
-/*  top: 0;*/
-/*  width: 100%; !* Full width *!*/
-/*  height: 100%; !* Full height *!*/
-/*  overflow: auto; !* Enable scroll if needed *!*/
-/*  background-color: rgb(0,0,0); !* Fallback color *!*/
-/*  background-color: rgba(0,0,0,0.4); !* Black w/ opacity *!*/
-/*}*/
-
-/*!* Modal Content *!*/
-/*.modal-content {*/
-/*  position: relative;*/
-/*  background-color: #fefefe;*/
-/*  margin: auto;*/
-/*  padding: 0;*/
-/*  border: 1px solid #888;*/
-/*  width: 80%;*/
-/*  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);*/
-/*  -webkit-animation-name: animatetop;*/
-/*  -webkit-animation-duration: 0.4s;*/
-/*  animation-name: animatetop;*/
-/*  animation-duration: 0.4s;*/
-/*}*/
-
-/*!* Add Animation *!*/
-/*@-webkit-keyframes animatetop {*/
-/*  from {top:-300px; opacity:0}*/
-/*  to {top:0; opacity:1}*/
-/*}*/
-
-/*@keyframes animatetop {*/
-/*  from {top:-300px; opacity:0}*/
-/*  to {top:0; opacity:1}*/
-/*}*/
-
-/*!* The Close Button *!*/
-/*.close {*/
-/*  color: white;*/
-/*  float: right;*/
-/*  font-size: 28px;*/
-/*  font-weight: bold;*/
-/*}*/
-
-/*.close:hover,*/
-/*.close:focus {*/
-/*  color: #000;*/
-/*  text-decoration: none;*/
-/*  cursor: pointer;*/
-/*}*/
-
-/*.modal-header {*/
-/*  padding: 2px 16px;*/
-/*  background-color: #5cb85c;*/
-/*  color: white;*/
-/*}*/
-
-/*.modal-body {padding: 2px 16px;}*/
-
-/*.modal-footer {*/
-/*  padding: 2px 16px;*/
-/*  background-color: #5cb85c;*/
-/*  color: white;*/
-/*}*/
 
 .yb-main-menu {
   position: absolute;
@@ -737,6 +503,23 @@ html, body {
   height: 5px;
 }
 
+.yb-resume-skill-item-percent small{
+  opacity: 0;
+}
+
+.yb-resume-skill-item-percent small.opacity-transition, .circle-progress strong.opacity-transition{
+  -webkit-transition: 5s;
+  -moz-transition: 5s;
+  -ms-transition: 5s;
+  -o-transition: 5s;
+  transition: 5s;
+  opacity: 1;
+}
+
+progress[value]::-webkit-progress-value {
+    transition: width 3s;
+}
+
 .yb-box-circle {
   width: 100px;
   margin: 6px;
@@ -756,6 +539,7 @@ html, body {
   text-align: center;
   line-height: 40px;
   font-size: 20px;
+  opacity: 0;
   transition: 0.3s;
 }
 
@@ -1727,4 +1511,171 @@ html, body {
 
 .yb-dark-skin .uk-form-danger {
   border-color: #f0506e !important;
+}
+
+/*-------------------------------------------------------------------
+14. Modal
+------------------------------------------------------------------- */
+
+.modal_wraper {
+  background-color: rgba(255, 255, 255, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999999;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+}
+.modal_wraper.active {
+  opacity: 1;
+  visibility: visible;
+}
+.modal_wraper .modal_container {
+  background-color: #05182c;
+  max-width: 450px;
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  display: none;
+  box-shadow: 0 1px 6px #0001, 0 2px 10px #0002;
+}
+.modal_wraper.active .modal_container {
+  display: block;
+  animation-name: modal_open_animation;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0.4s;
+}
+@keyframes modal_open_animation {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.modal_wraper.modal_close_animation .modal_container {
+  animation-name: modal_close_animation;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0s;
+}
+@keyframes modal_close_animation {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+.modal_wraper.lg .modal_container {
+  max-width: 650px;
+}
+.modal_wraper.xl .modal_container {
+  max-width: 850px;
+}
+.modal_wraper .modal_container :is(.modal_header, .modal_footer) {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #000;
+  font-weight: bold;
+  color: white;
+}
+
+.modal_header span{
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+}
+
+.modal_wraper .modal_container :is(.modal_header, .modal_footer) > .close {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.modal_wraper .modal_container :is(.modal_header, .modal_footer) > .close i {
+  color: white;
+  pointer-events: none;
+}
+.modal_wraper
+  .modal_container
+  :is(.modal_header, .modal_footer)
+  > .close:hover {
+  color: #1e87f0;
+}
+.modal_wraper .modal_container .modal_footer > .close.btn {
+  color: white;
+  padding: 8px 15px;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px #0003;
+}
+.modal_wraper .modal_container .modal_footer > .close.btn:hover {
+  filter: brightness(0.95);
+  box-shadow: 0 2px 15px #0006;
+}
+.modal_wraper .modal_container .modal_body {
+  border-top: 1px solid #0002;
+  border-bottom: 1px solid #0002;
+  padding: 10px 20px;
+  max-height: 80vh;
+  overflow-y: auto;
+  line-height: 1.8;
+}
+
+.modal_body_languages{
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.modal_body_box div{
+  display: flex;
+  align-items: center;
+  width: 10rem;
+  height: 10rem;
+  overflow: hidden;
+  border-radius: 50%;
+  max-height: 200px;
+  max-width: 200px;
+}
+
+.modal_body_box p{
+  text-align: center;
+  margin: 10px 0 0 0;
+}
+
+.modal_body_box p i{
+  color: #00ff95;
+}
+
+.modal_body_box.deactive:hover{
+  background-color: #00ff95;
+  transform: scale(105%);
+  border-radius: 5%;
+  cursor: pointer;
+}
+
+.modal_body_box.deactive:hover p{
+  color: black;
+}
+
+.modal_body_box.deactive:hover p i{
+  color: black;
+}
+
+.modal_body_box{
+  padding: 10px 5px 0;
 }

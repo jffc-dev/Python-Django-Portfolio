@@ -1,10 +1,6 @@
 from pathlib import Path
-import json
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-with open('/etc/config.json') as config_file:
-    config = json.load(config_file)
 
 SQLITE = {
     'default': {
@@ -17,8 +13,8 @@ POSTGRESQL = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'portfolio_db',
-        'USER': config["DATABASE_USER"],
-        'PASSWORD': config["DATABASE_PASSWORD"],
+        'USER': 'portfolio_user',
+        'PASSWORD': 'p0rtf0lioJFFC',
         'HOST': 'localhost',
         'PORT': '5432'
     }
