@@ -25,12 +25,14 @@ $.fn.isOnScreen = function(){
   let is_scroll = false;
   let is_resize = false;
   //Circle progress div visibility
-  let skills_visible = false;
+  let skills_hard_visible = false, skills_soft_visible = false, skills_lang_visible = false;
   let myscroll, myresize;
 
   //Run function when document ready
   $(document).ready(function() {
-    skills_visible = $('#skills-div').isOnScreen();
+    skills_hard_visible = $('#skillsHard-div').isOnScreen();
+    skills_soft_visible = $('#skillsSoft-div').isOnScreen();
+    skills_lang_visible = $('#skillsLang-div').isOnScreen();
     init_full_height();
     init_pageloader();
     init_typed();
@@ -51,14 +53,23 @@ $.fn.isOnScreen = function(){
       init_update_uikit();
     }, 300);
 
-    let current_visible_skills = $('#skills-div').isOnScreen();
+    let current_visible_skills_hard = $('#skillsHard-div').isOnScreen();
+    let current_visible_skills_soft = $('#skillsSoft-div').isOnScreen();
+    let current_visible_skills_lang = $('#skillsLang-div').isOnScreen();
 
-    if(skills_visible != current_visible_skills){
-      if ($('#skills-div').isOnScreen()) {
-        init_chart_circle()
-    } else {
+    //Validacion de visibilidad de div para habilidades duras
+    if(skills_hard_visible != current_visible_skills_hard){
+      if ($('#skillsHard-div').isOnScreen()) {
+        init_chart_circle();
         $(".circle-progress").each(function(i, el) {
-        let $el = $(el);
+          console.log(el.getElementsByTagName('strong')[0])
+          el.getElementsByTagName('strong')[0].classList.add('opacity-transition')
+        });
+      } else {
+        $(".circle-progress").each(function(i, el) {
+          let $el = $(el);
+          console.log(el.getElementsByTagName('strong')[0])
+          el.getElementsByTagName('strong')[0].classList.remove('opacity-transition')
           $($el).circleProgress({
             value: 0,
             animationStartValue: $el.data("value"),
@@ -69,7 +80,50 @@ $.fn.isOnScreen = function(){
         });
       }
     }
-    skills_visible = $('#skills-div').isOnScreen();
+
+    //Validacion de visibilidad de div para habilidades blandas
+    if(skills_soft_visible != current_visible_skills_soft){
+      let habilidades_blandas = $('#skillsSoft-div .yb-resume-skill-item')
+      if ($('#skillsSoft-div').isOnScreen()) {
+        for (let i = 0; i < habilidades_blandas.length; i++) {
+          let progress_tag = habilidades_blandas[i].getElementsByTagName('progress')[0];
+          let small_tag = habilidades_blandas[i].getElementsByTagName('small')[0];
+          progress_tag.value = progress_tag.dataset.value;
+          small_tag.classList.add('opacity-transition');
+        }
+      } else {
+        for (let i = 0; i < habilidades_blandas.length; i++) {
+          let progress_tag = habilidades_blandas[i].getElementsByTagName('progress')[0];
+          let small_tag = habilidades_blandas[i].getElementsByTagName('small')[0];
+          progress_tag.value = 0;
+          small_tag.classList.remove('opacity-transition');
+        }
+      }
+    }
+
+    //Validacion de visibilidad de div para habilidades idiomas
+    if(skills_lang_visible != current_visible_skills_lang){
+      let habilidades_idiomas = $('#skillsLang-div .yb-resume-skill-item')
+      if ($('#skillsSoft-div').isOnScreen()) {
+        for (let i = 0; i < habilidades_idiomas.length; i++) {
+          let progress_tag = habilidades_idiomas[i].getElementsByTagName('progress')[0];
+          let small_tag = habilidades_idiomas[i].getElementsByTagName('small')[0];
+          progress_tag.value = progress_tag.dataset.value;
+          small_tag.classList.add('opacity-transition');
+        }
+      } else {
+        for (let i = 0; i < habilidades_idiomas.length; i++) {
+          let progress_tag = habilidades_idiomas[i].getElementsByTagName('progress')[0];
+          let small_tag = habilidades_idiomas[i].getElementsByTagName('small')[0];
+          progress_tag.value = 0;
+          small_tag.classList.remove('opacity-transition');
+        }
+      }
+    }
+
+    skills_hard_visible = $('#skillsHard-div').isOnScreen();
+    skills_soft_visible = $('#skillsSoft-div').isOnScreen();
+    skills_lang_visible = $('#skillsLang-div').isOnScreen();
   });
 
   //Run function when window on resize
@@ -125,25 +179,8 @@ $.fn.isOnScreen = function(){
     $("#menucollapse .uk-navbar-nav a").on("click", function() {
       $("#main-menu").toggleClass("open-menu");
     });
+
     //Al hacer click en el botón de idiomma
-    $("#iconSelectedLanguage").on("click", function() {
-      // // Get the modal
-      // var modal = document.getElementById("myModal");
-      // var span = document.getElementsByClassName("close")[0];
-      // // When the user clicks on <span> (x), close the modal
-      // span.onclick = function() {
-      //   modal.style.display = "none";
-      // }
-      // modal.style.display = "block";
-      // $(window).on("click", function(e) {
-      //   if (e.target == modal) {
-      //     modal.style.display = "none";
-      //   }
-      // });
-
-
-    });
-
     $("#iconSelectedLanguage").on("click", function() {
       let modals = document.querySelectorAll("#modal_one");
       modals.forEach(function(modal)
