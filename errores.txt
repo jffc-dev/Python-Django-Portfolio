@@ -1,0 +1,7 @@
+1. Cambio LANG Apache
+    Al momento de subir el archivo del CV al servidor, se obtuvo el siguiente error: 'ascii' codec can't encode character '\xe1' in position 69: ordinal not in range(128)
+    Se siguieron los siguientes pasos para la corrección:
+
+    1.1. sudo nano /etc/apache2/envvars
+    1.2. Se encontró la siguiente variable env -> "export LANG=C" // modificandola a -> "export LANG=en_US.utf8"
+    1.3. Reiniciar el servicio de apache (sudo service apache2 restart)
