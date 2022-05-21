@@ -32,7 +32,6 @@ def verificar_texto_longitud(valor, arg):
 @register.simple_tag(name='verificar_categoria_idioma')
 def verificar_categoria_idioma(categoriaCodigo, idiomaCodigo):
     categoriaIdioma = CategoriaIdioma.objects.filter(categoria=categoriaCodigo, idioma=idiomaCodigo)
-    print(categoriaIdioma)
     if len(categoriaIdioma) > 0:
         return categoriaIdioma[0].nombreCorto
     else:

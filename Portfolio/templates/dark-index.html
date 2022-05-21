@@ -476,21 +476,24 @@
                 </div>
             </div>
         </div>
-{#        <div class="yb-section yb-section-padding uk-background-cover uk-background-fixed " data-uk-parallax="bgy: -200"#}
-{#             data-src="{% static 'img/bg/bg5-1.jpg' %}" data-uk-img>#}
-{#            <div class="yb-overlay-primary uk-position-cover"></div>#}
-{#            <div class="uk-container uk-text-center uk-position-relative">#}
-{#                <div data-uk-grid class="uk-grid-small  uk-flex-center">#}
-{#                    <div>#}
-{#                        <a href="#" class=" yb-btn uk-button uk-button-primary uk-button-large">Download CV</a>#}
-{#                    </div>#}
+        <div class="yb-section yb-section-padding uk-background-cover uk-background-fixed " data-uk-parallax="bgy: -200"
+             data-src="{% static 'img/bg/bg5-1.jpg' %}" data-uk-img>
+            <div class="yb-overlay-primary uk-position-cover"></div>
+            <div class="uk-container uk-text-center uk-position-relative">
+                <div data-uk-grid class="uk-grid-small  uk-flex-center">
+                    <div>
+                        <a
+                            {% if idiomaSeleccionado.perfil.archivoCv != "" %}href="{{ idiomaSeleccionado.perfil.archivoCv.url }}"{% else %}href="{{ idiomaDefault.perfil.archivoCv.url }}"{% endif %} download class=" yb-btn uk-button uk-button-primary uk-button-large">
+                            {% verificar_seleccionado_texto idiomaSeleccionado.idiomaentorno.resumenBotonCv idiomaDefault.idiomaentorno.resumenBotonCv %}
+                        </a>
+                    </div>
 {#                    <div>#}
 {#                        <a href="#contact" class="yb-inner-link yb-btn uk-button uk-button-danger  uk-button-large">Hire#}
 {#                            Me</a>#}
 {#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
+                </div>
+            </div>
+        </div>
     </section><!-- end resume section -->
     <!-- portfolio section -->
 {#    <section class="yb-section  uk-overflow-hidden" id="portfolio">#}
